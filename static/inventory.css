@@ -1,0 +1,254 @@
+    /* ====== FONDO Y FUENTE ====== */
+    body {
+        background-color: #1e1e1e;
+        color: #d3d3d3;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* ====== CONTENEDOR PRINCIPAL ====== */
+    main.inventory {
+        margin-left: 270px;
+        padding: 30px;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+    
+    /* ====== ENCABEZADO ====== */
+    main.inventory header h1 {
+        font-size: 2rem;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* ====== FILTROS Y BÚSQUEDA ====== */
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .filters input,
+    .filters select,
+    .filters button {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #d3d3d3;
+        background: #252525;
+        color: #ffffff;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    .filters button:hover {
+        background: #d3d3d3;
+        color: #1e1e1e;
+    }
+    
+    /* ====== SECCIÓN DE EQUIPOS ====== */
+    .equipment-list {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .equipment-list table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #252525;
+        color: #d3d3d3;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        overflow: hidden;
+    }
+    
+    .equipment-list th,
+    .equipment-list td {
+        padding: 12px;
+        border-bottom: 1px solid #444;
+    }
+    
+    .equipment-list th {
+        background: #333;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        color: #ffffff;
+    }
+    
+    .equipment-list tr:nth-child(even) {
+        background: rgba(211, 211, 211, 0.06);
+    }
+    
+    .equipment-list tr:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    
+    /* ====== CATEGORÍAS ====== */
+    .category-header td {
+        background: #444;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
+    
+    /* ====== SUBTOTAL Y TOTAL ====== */
+    td[colspan="5"][style*="text-align: right"] {
+        background: #333;
+    }
+    td[colspan="4"],
+    td[colspan="2"] {
+        background: #333;
+        text-align: center;
+    }
+    
+    /* ====== ESTADOS (CLASES DE COLOR) ====== */
+    .status-disponible {
+        color: #4caf50;
+        font-weight: bold;
+    }
+    .status-en-uso {
+        color: #ff9800;
+        font-weight: bold;
+    }
+    .status-mantenimiento {
+        color: #f44336;
+        font-weight: bold;
+    }
+    
+    /* ====== BOTONES DE ACCIÓN EN LA TABLA ====== */
+    .edit-btn,
+    .delete-btn,
+    .qr-btn {
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 5px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+    
+    .edit-btn {
+        background: #4CAF50;
+        color: #ffffff;
+    }
+    .edit-btn:hover {
+        background: #45a049;
+    }
+    
+    .delete-btn {
+        background: #f44336;
+        color: #ffffff;
+    }
+    .delete-btn:hover {
+        background: #e53935;
+    }
+    
+    .qr-btn {
+        background: #2196F3;
+        color: #ffffff;
+    }
+    .qr-btn:hover {
+        background: #1976D2;
+    }
+    
+    /* ====== MODALES ====== */
+    .modal {
+        display: none; /* se muestra con JS */
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* permite scroll si el contenido es grande */
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+    .modal-content {
+        background: #2f2f2f;
+        margin: 5% auto; /* centra verticalmente y horizontalmente */
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+        color: #fff;
+        position: relative;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    .modal-content h2 {
+        margin-top: 0;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .modal-content button {
+        background: #444;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        margin: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .modal-content button:hover {
+        background: #666;
+    }
+    
+    /* ====== CAMPOS DE FORMULARIO ====== */
+    .modal-content input[type="text"],
+    .modal-content input[type="email"],
+    .modal-content input[type="tel"],
+    .modal-content input[type="number"],
+    .modal-content input[type="date"],
+    .modal-content textarea,
+    .modal-content select {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 10px;
+        box-sizing: border-box;
+        background-color: #2a2a2a;
+        color: #f0f0f0;
+        border: 1px solid #666;
+        border-radius: 4px;
+    }
+    
+    /* ====== VIDEO QR Y CANVAS ====== */
+    #qr-video {
+        display: block;
+        margin: 10px auto;
+    }
+    #scan-status {
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+        main.inventory {
+        margin-left: 0;
+        padding: 15px;
+        }
+        .filters {
+        flex-direction: column;
+        align-items: center;
+        }
+        .equipment-list table {
+        font-size: 0.9rem;
+        }
+        .modal-content {
+        width: 95%;
+        margin-top: 20%;
+        }
+    }
+    

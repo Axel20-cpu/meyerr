@@ -1,0 +1,54 @@
+/* ====== SEGUIMIENTO EN TIEMPO REAL ====== */
+.tracking {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ====== TABLA ====== */
+.tracking-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #252525;
+    color: white;
+}
+
+/* ====== BOTÓN ESCANEAR ====== */
+.scanner button {
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    background: #252525;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.scanner button:hover {
+    background: #d3d3d3;
+    color: #1e1e1e;
+}
+
+
+    /* ====== RESPONSIVIDAD ====== */
+    @media (max-width: 768px) {
+        .stats {
+        flex-direction: column;
+        align-items: center;
+        }
+        .charts {
+        flex-direction: column;
+        align-items: center;
+        }
+        .card {
+        width: 80%;
+        margin-bottom: 15px;
+        }
+        .charts canvas {
+        width: 100% !important;
+        max-width: 600px;
+        }
+    }
+    

@@ -1,0 +1,111 @@
+    /* ====== SECCIÓN PRINCIPAL ====== */
+    main.dashboard {
+        margin-left: 270px;
+        padding: 30px;
+        color: #d3d3d3;
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        background: #1e1e1e;
+    }
+    
+    /* ====== ENCABEZADO ====== */
+    main.dashboard header h1 {
+        font-size: 2rem;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* ====== TARJETAS DE ESTADÍSTICAS ====== */
+    .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .card {
+        background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+        padding: 20px;
+        border-radius: 12px;
+        width: 200px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.7),
+                    -5px -5px 10px rgba(60,60,60,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.8);
+    }
+    
+    .card h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #a9a9a9;
+    }
+    
+    .card p {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    
+    /* ====== CONTENEDOR DE GRÁFICOS ====== */
+    .charts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 20px;
+    }
+    
+    /* ====== ESTILOS DE GRÁFICOS ====== */
+    .charts canvas {
+        width: 400px !important;
+        height: 300px !important;
+        max-width: 100%;
+        background: #252525;
+        border: 1px solid #d3d3d3;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 3px 3px 8px rgba(0,0,0,0.6),
+                    -3px -3px 8px rgba(60,60,60,0.1);
+    }
+
+    .chart-wrapper {
+        width: 400px;    /* Puedes ajustar el tamaño según prefieras */
+        height: 300px;
+        margin: 0 auto;
+    }      
+    
+    
+    /* ====== RESPONSIVIDAD ====== */
+    @media (max-width: 768px) {
+        .stats {
+        flex-direction: column;
+        align-items: center;
+        }
+        .charts {
+        flex-direction: column;
+        align-items: center;
+        }
+        .card {
+        width: 80%;
+        margin-bottom: 15px;
+        }
+        .charts canvas {
+        width: 100% !important;
+        max-width: 600px;
+        }
+    }
+    

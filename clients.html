@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Clientes - Rigging</title>
+    <link rel="stylesheet" href="static/global.css">
+    <link rel="stylesheet" href="static/clients.css">
+</head>
+<body>
+
+    <!-- Menú lateral -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="static/images/logo.png" alt="Empresa Logo" width="200" height="65">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">📊 Dashboard</a></li>
+                <li><a href="inventory.html">🎛 Gestión de Equipos</a></li>
+                <li><a href="events.html">🎭 Eventos y Montajes</a></li>
+                <li><a href="logistics.html">🗺 Logística y Mapas</a></li>
+                <li><a href="clients.html" class="active">🤝 Clientes y Contratos</a></li>
+                <li><a href="tracking.html">📡 Seguimiento en Tiempo Real</a></li>
+                
+                
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="clients">
+        <header>
+            <h1>🤝 Gestión de Clientes</h1>
+        </header>
+
+        <!-- Filtros y búsqueda -->
+        <section class="filters">
+            <input type="text" id="search-input" placeholder="🔍 Buscar por nombre o empresa...">
+            <button id="add-client-button">➕ Agregar Cliente</button>
+            <button id="export-button">📥 Exportar a Excel</button>
+        </section>
+
+        <!-- Tabla de Clientes -->
+        <section class="clients-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Empresa</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="clients-table-body">
+                    <tr><td colspan="6">Cargando clientes...</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Modal para agregar cliente -->
+        <section id="add-client-modal" class="modal">
+            <div class="modal-content">
+                <h2>Agregar Nuevo Cliente</h2>
+                <form id="add-client-form">
+                    <label>Nombre:</label>
+                    <input type="text" id="client-name" required>
+
+                    <label>Empresa:</label>
+                    <input type="text" id="client-company" required>
+
+                    <label>Email:</label>
+                    <input type="email" id="client-email" required>
+
+                    <label>Teléfono:</label>
+                    <input type="tel" id="client-phone" required>
+
+                    <button type="submit">Agregar</button>
+                    <button type="button" id="close-modal">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Modal para gestionar contratos -->
+        <section id="contracts-modal" class="modal">
+            <div class="modal-content">
+                <h2>Contratos de Cliente</h2>
+                <div id="contracts-client-info"></div>
+                <table id="contracts-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Descripción</th>
+                            <th>Status</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contracts-table-body">
+                        <tr><td colspan="6">Cargando contratos...</td></tr>
+                    </tbody>
+                </table>
+                <button id="add-contract-button">➕ Agregar Contrato</button>
+                <button type="button" id="close-contracts-modal">Cerrar</button>
+            </div>
+        </section>
+
+        <!-- Modal para agregar/editar contrato -->
+        <section id="contract-form-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="contract-form-title">Agregar Contrato</h2>
+                <form id="contract-form">
+                    <label>Fecha Inicio:</label>
+                    <input type="date" id="contract-start" required>
+                    <label>Fecha Fin:</label>
+                    <input type="date" id="contract-end" required>
+                    <label>Descripción:</label>
+                    <textarea id="contract-description" rows="3" required></textarea>
+                    <label>Status:</label>
+                    <select id="contract-status">
+                        <option value="Activo">Activo</option>
+                        <option value="Finalizado">Finalizado</option>
+                        <option value="Pendiente">Pendiente</option>
+                    </select>
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="close-contract-form">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="static/clients.js"></script>
+    <script src="static/global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+</body>
+</html>

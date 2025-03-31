@@ -1,0 +1,186 @@
+/* ====== SECCIÓN DE CLIENTES ====== */
+.clients {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ====== FILTROS ====== */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filters input, .filters button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    background: #252525;
+    color: white;
+}
+
+.filters button:hover {
+    background: #d3d3d3;
+    color: #1e1e1e;
+}
+
+/* ====== TABLA DE CLIENTES ====== */
+.clients-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #252525;
+    color: white;
+}
+
+.clients-list th, .clients-list td {
+    padding: 12px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.clients-list th {
+    background: #d3d3d3;
+    color: #1e1e1e;
+}
+
+.clients-list tr:nth-child(even) {
+    background: rgba(211, 211, 211, 0.1);
+}
+
+.clients-list tr:hover {
+    background: rgba(211, 211, 211, 0.2);
+}
+
+/* ====== MODAL GENÉRICO ====== */
+.modal {
+    display: none; /* se muestra con JS */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* permite scroll si el contenido es grande */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* ====== CONTENIDO DEL MODAL ====== */
+.modal-content {
+    background: #2f2f2f;
+    margin: 5% auto; /* centra verticalmente y horizontalmente */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px; /* ancho máximo para que no sea demasiado grande */
+    color: #fff;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* ====== BOTONES DENTRO DE LOS MODALES ====== */
+.modal-content button {
+    background: #444;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.modal-content button:hover {
+    background: #666;
+}
+
+/* ====== CAMPOS DE FORMULARIO ====== */
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="tel"],
+.modal-content input[type="date"],
+.modal-content input[type="datetime-local"],
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 10px;
+    box-sizing: border-box;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #666;
+    border-radius: 4px;
+}
+
+/* ====== ESTILOS ESPECÍFICOS PARA SECCIONES DE CONTRATOS ====== */
+#contracts-modal .modal-content {
+    max-width: 800px; /* los contratos pueden requerir más espacio */
+}
+
+#contracts-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #252525;
+    margin-top: 10px;
+}
+
+#contracts-table th, #contracts-table td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+#contracts-table th {
+    background: #444;
+    color: #fff;
+}
+
+#contracts-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#contracts-table tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Para el contenedor con info del cliente */
+#contracts-client-info {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+}
+
+/* ====== PEQUEÑA MEJORA PARA EL BOTÓN DE AGREGAR CONTRATO ====== */
+#add-contract-button {
+    background: #4CAF50; /* verde */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#add-contract-button:hover {
+    background: #45a049;
+}
+
+    /* ====== RESPONSIVIDAD ====== */
+    @media (max-width: 768px) {
+        .stats {
+        flex-direction: column;
+        align-items: center;
+        }
+        .charts {
+        flex-direction: column;
+        align-items: center;
+        }
+        .card {
+        width: 80%;
+        margin-bottom: 15px;
+        }
+        .charts canvas {
+        width: 100% !important;
+        max-width: 600px;
+        }
+    }
+    

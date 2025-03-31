@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento en Tiempo Real - Rigging</title>
+    <link rel="stylesheet" href="static/global.css">
+    <link rel="stylesheet" href="static/tracking.css">
+</head>
+<body>
+
+    <!-- Menú lateral -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="static/images/logo.png" alt="Empresa Logo" width="200" height="65">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">📊 Dashboard</a></li>
+                <li><a href="inventory.html">🎛 Gestión de Equipos</a></li>
+                <li><a href="events.html">🎭 Eventos y Montajes</a></li>
+                <li><a href="logistics.html">🗺 Logística y Mapas</a></li>
+                <li><a href="clients.html">🤝 Clientes y Contratos</a></li>
+                <li><a href="tracking.html" class="active">📡 Seguimiento en Tiempo Real</a></li>
+                
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="tracking">
+        <header>
+            <h1>📡 Seguimiento en Tiempo Real</h1>
+        </header>
+
+        <!-- Botón para escanear código QR/Barras -->
+        <section class="scanner">
+            <button id="scan-qr-button">📷 Escanear Código QR/Barras</button>
+        </section>
+
+        <!-- Tabla de Movimientos -->
+        <section class="tracking-list">
+            <h2>Historial de Movimientos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Equipo</th>
+                        <th>Nombre</th>
+                        <th>Ubicación</th>
+                        <th>Fecha/Hora</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tracking-table-body">
+                    <tr><td colspan="5">No hay movimientos registrados.</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="static/tracking.js"></script>
+
+</body>
+</html>

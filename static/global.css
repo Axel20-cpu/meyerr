@@ -1,0 +1,185 @@
+/* ====== GENERAL ====== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e1e; /* Fondo gris oscuro */
+    color: #d3d3d3; /* Texto en gris claro */
+}
+
+/* ====== MENÚ LATERAL ====== */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #252525; /* Gris oscuro */
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #d3d3d3;
+    padding: 10px;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background: #d3d3d3;
+    color: #1e1e1e;
+    border-radius: 5px;
+}
+
+/* ====== CONTENIDO PRINCIPAL ====== */
+main {
+    margin-left: 270px;
+    padding: 30px;
+}
+
+/* ====== TARJETAS DE ESTADÍSTICAS ====== */
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #252525; /* Gris oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(211, 211, 211, 0.3);
+    width: 200px;
+    text-align: center;
+}
+
+.card h3 {
+    margin: 0;
+    color: #d3d3d3;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* ====== TABLAS ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #252525; /* Gris oscuro */
+    color: #d3d3d3;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #d3d3d3;
+    text-align: left;
+}
+
+th {
+    background: #d3d3d3;
+    color: #1e1e1e;
+}
+
+tr:nth-child(even) {
+    background: rgba(211, 211, 211, 0.1);
+}
+
+tr:hover {
+    background: rgba(211, 211, 211, 0.2);
+}
+
+/* ====== BOTONES ====== */
+button {
+    background: #252525;
+    border: 1px solid #d3d3d3;
+    color: #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d3d3d3;
+    color: #1e1e1e;
+}
+
+/* ====== GRÁFICOS ====== */
+.chart-container {
+    background: #252525;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(211, 211, 211, 0.3);
+}
+
+/* ====== RESPONSIVIDAD ====== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    main {
+        margin-left: 220px;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+    /* ====== RESPONSIVIDAD ====== */
+    @media (max-width: 768px) {
+        .stats {
+        flex-direction: column;
+        align-items: center;
+        }
+        .charts {
+        flex-direction: column;
+        align-items: center;
+        }
+        .card {
+        width: 80%;
+        margin-bottom: 15px;
+        }
+        .charts canvas {
+        width: 100% !important;
+        max-width: 600px;
+        }
+    }
+    

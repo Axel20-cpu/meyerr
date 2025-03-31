@@ -1,0 +1,84 @@
+    /* ====== SECCIÓN DE LOGÍSTICA Y MAPAS ====== */
+    main.logistics {
+        margin-left: 270px;
+        padding: 30px;
+        min-height: 100vh;
+        background: #1e1e1e;
+        color: #d3d3d3;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    /* ====== ENCABEZADO ====== */
+    main.logistics header h1 {
+        font-size: 2rem;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* ====== CONTROLES DE FILTRO Y RUTA ====== */
+    #filter-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    #filter-controls label {
+        font-weight: bold;
+        color: #d3d3d3;
+        margin-right: 5px;
+    }
+    
+    #filter-controls select {
+        padding: 10px;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        background: #252525;
+        color: #ffffff;
+        font-size: 1rem;
+    }
+    
+    #filter-controls button {
+        padding: 10px 15px;
+        background: #252525;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+    }
+    #filter-controls button:hover {
+        background: #d3d3d3;
+        color: #1e1e1e;
+    }
+    
+    /* ====== MAPA ====== */
+    #map {
+        width: 100%;
+        height: 650px;
+        background: #333; /* fallback si no carga el mapa */
+        border: 1px solid #444;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    /* ====== RESPONSIVIDAD ====== */
+    @media (max-width: 768px) {
+        main.logistics {
+        margin-left: 0;
+        padding: 15px;
+        }
+        #filter-controls {
+        flex-direction: column;
+        gap: 15px;
+        }
+        #map {
+        height: 500px;
+        }
+    }
+    

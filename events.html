@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Eventos - Rigging</title>
+  <link rel="stylesheet" href="static/global.css">
+  <link rel="stylesheet" href="static/events.css">
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Menú lateral -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="static/images/logo.png" alt="Empresa Logo" width="200" height="65">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">📊 Dashboard</a></li>
+        <li><a href="inventory.html">🎛 Gestión de Equipos</a></li>
+        <li><a href="events.html" class="active">🎭 Eventos y Montajes</a></li>
+        <li><a href="logistics.html">🗺 Logística y Mapas</a></li>
+        <li><a href="clients.html">🤝 Clientes y Contratos</a></li>
+        <li><a href="tracking.html">📡 Seguimiento en Tiempo Real</a></li>
+        
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="events">
+    <header>
+      <h1>🎭 Gestión de Eventos y Montajes</h1>
+    </header>
+
+    <!-- Filtros y búsqueda -->
+    <section class="filters">
+      <input type="text" id="search-input" placeholder="🔍 Buscar por nombre o cliente...">
+      <select id="status-filter">
+        <option value="">Todos</option>
+        <option value="Activo">Activo</option>
+        <option value="Finalizado">Finalizado</option>
+        <option value="Pendiente">Pendiente</option>
+      </select>
+      <button id="add-event-button">➕ Agregar Evento</button>
+      <button id="export-button">📥 Exportar a Excel</button>
+    </section>
+
+    <!-- Tabla de Eventos -->
+    <section class="events-list">
+      <table>
+        <thead>
+          <tr>
+            <th data-column="id">ID</th>
+            <th data-column="name">Nombre</th>
+            <th data-column="client">Cliente</th>
+            <th data-column="dateTime">Fecha/Hora</th>
+            <th data-column="location">Ubicación</th>
+            <th>Tareas</th>
+            <th data-column="status">Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="events-table-body">
+          <tr><td colspan="8">Cargando eventos...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Modal para agregar evento -->
+    <section id="add-event-modal" class="modal">
+      <div class="modal-content">
+        <h2>Agregar Nuevo Evento</h2>
+        <form id="add-event-form">
+          <label>Nombre del Evento:</label>
+          <input type="text" id="event-name" required>
+
+          <label>Cliente:</label>
+          <input type="text" id="event-client" required>
+
+          <label>Fecha y Hora:</label>
+          <input type="datetime-local" id="event-datetime" required>
+
+          <label>Ubicación:</label>
+          <input type="text" id="event-location" required>
+
+          <label>Repetición:</label>
+          <select id="event-recurrence">
+            <option value="Ninguno" selected>Ninguno</option>
+            <option value="Diario">Diario</option>
+            <option value="Semanal">Semanal</option>
+            <option value="Mensual">Mensual</option>
+          </select>
+
+          <label>Checklist de Tareas (una por línea):</label>
+          <textarea id="event-checklist" rows="3"></textarea>
+
+          <label>Estado:</label>
+          <select id="event-status">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Activo">Activo</option>
+            <option value="Finalizado">Finalizado</option>
+          </select>
+
+          <button type="submit">Agregar</button>
+          <button type="button" id="close-modal">Cancelar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Modal para editar evento -->
+    <section id="edit-event-modal" class="modal">
+      <div class="modal-content">
+        <h2>Editar Evento</h2>
+        <form id="edit-event-form">
+          <label>Nombre del Evento:</label>
+          <input type="text" id="edit-event-name" required>
+
+          <label>Cliente:</label>
+          <input type="text" id="edit-event-client" required>
+
+          <label>Fecha y Hora: </label>
+          <input type="datetime-local" id="edit-event-datetime" required>
+
+          <label>Ubicación:</label>
+          <input type="text" id="edit-event-location" required>
+
+          <label>Repetición:</label>
+          <select id="edit-event-recurrence">
+            <option value="Ninguno" selected>Ninguno</option>
+            <option value="Diario">Diario</option>
+            <option value="Semanal">Semanal</option>
+            <option value="Mensual">Mensual</option>
+          </select>
+
+          <button type="button" id="edit-checklist-btn">Editar Checklist</button>
+
+          <label>Estado:</label>
+          <select id="edit-event-status">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Activo">Activo</option>
+            <option value="Finalizado">Finalizado</option>
+          </select>
+
+          <button type="submit">Guardar Cambios</button>
+          <button type="button" id="close-edit-modal">Cancelar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Modal para editar checklist -->
+    <section id="checklist-modal" class="modal">
+      <div class="modal-content">
+        <h2>Editar Checklist de Tareas</h2>
+        <form id="checklist-form">
+          <label>Tareas (una por línea):</label>
+          <textarea id="checklist-text" rows="5"></textarea>
+          <button type="submit">Guardar</button>
+          <button type="button" id="close-checklist-modal">Cancelar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Modal para ver detalles del evento, ahora con integración de clima -->
+    <section id="view-event-modal" class="modal">
+      <div class="modal-content">
+        <h2>Detalles del Evento</h2>
+        <p><strong>ID:</strong> <span id="detail-event-id"></span></p>
+        <p><strong>Nombre:</strong> <span id="detail-event-name"></span></p>
+        <p><strong>Cliente:</strong> <span id="detail-event-client"></span></p>
+        <p><strong>Fecha/Hora:</strong> <span id="detail-event-datetime"></span></p>
+        <p><strong>Ubicación:</strong> <span id="detail-event-location"></span></p>
+        <p><strong>Repetición:</strong> <span id="detail-event-recurrence"></span></p>
+        <p><strong>Checklist:</strong> <span id="detail-event-checklist"></span></p>
+        <p><strong>Estado:</strong> <span id="detail-event-status"></span></p>
+        <p><strong>Clima:</strong> <span id="detail-event-weather">Cargando...</span></p>
+        <button type="button" id="close-view-modal">Cerrar</button>
+      </div>
+    </section>
+
+    <!-- Calendario FullCalendar -->
+    <div id="calendar"></div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="static/global.js"></script>
+  <script src="static/events.js"></script>
+  <script src="static/calendar.js"></script>
+  <script src="static/logistics.js"></script>
+  <script src="static/notifications.js"></script>
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@6.1.8/index.global.min.js"></script>
+  <script src="static/calendar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística y Mapas - Rigging</title>
+    <link rel="stylesheet" href="static/global.css">
+    <link rel="stylesheet" href="static/logistics.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    </head>
+    <body>
+    <!-- Menú lateral -->
+    <aside class="sidebar">
+        <div class="logo">
+        <img src="static/images/logo.png" alt="Empresa Logo" width="200" height="65">
+        </div>
+        <nav>
+        <ul>
+            <li><a href="index.html">📊 Dashboard</a></li>
+            <li><a href="inventory.html">🎛 Gestión de Equipos</a></li>
+            <li><a href="events.html">🎭 Eventos y Montajes</a></li>
+            <li><a href="logistics.html" class="active">🗺 Logística y Mapas</a></li>
+            <li><a href="clients.html">🤝 Clientes y Contratos</a></li>
+            <li><a href="tracking.html">📡 Seguimiento en Tiempo Real</a></li>
+            
+        </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="logistics">
+        <header>
+        <h1>🗺 Logística y Mapas</h1>
+        </header>
+        <div id="filter-controls">
+        <label for="status-filter">Filtrar por estado:</label>
+        <select id="status-filter">
+            <option value="Todos">Todos</option>
+            <option value="Activo">Activo</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Finalizado">Finalizado</option>
+        </select>
+        <button id="calculate-route">Calcular Ruta</button>
+        </div>
+        <div id="map"></div>
+    </main>
+
+    <!-- Scripts -->
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- MarkerCluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <!-- Nuestro script de logística -->
+    <script src="static/logistics.js"></script>
+    </body>
+    </html>
